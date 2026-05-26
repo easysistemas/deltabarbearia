@@ -4,17 +4,58 @@
 
 @layer base {
   :root {
-    --background: #0D1B2A;
-    --foreground: #F0E6D3;
+    --background: 0 0% 4%; /* #0A0A0A */
+    --foreground: 0 0% 96%; /* #F5F5F5 */
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 92%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 44 71% 45%; /* #C59A22 */
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 20% 92%;
+    --muted: 0 0% 53%; /* #888888 */
+    --muted-foreground: 0 0% 55%;
+    --accent: 44 71% 45%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 13%; /* #222222 */
+    --input: 0 0% 18%;
+    --ring: 44 71% 45%;
+    --chart-1: 43 72% 51%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.625rem;
+    --gold: 44 71% 45%;
+    --gold-foreground: 0 0% 5%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 5%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 44 71% 45%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 0 0% 13%;
+    --sidebar-ring: 44 71% 45%;
   }
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-/* Animations */
+/* Base Animations for Intersection Observer */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -27,16 +68,15 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.intersection-hidden {
-  opacity: 0;
-  transform: translateY(20px);
+/* Accordion Smooth Height Transition Setup */
+.accordion-content {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.intersection-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Marquee infinite scroll wrapper */
+.marquee-wrapper {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

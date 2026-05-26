@@ -1,27 +1,20 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Playfair_Display, Dancing_Script } from "next/font/google"
+import { Inter, Bebas_Neue, Inter_Tight } from "next/font/google"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const _playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-})
-const _dancing = Dancing_Script({
-  subsets: ["latin"],
-  variable: "--font-dancing",
-})
+const _interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight" })
+const _bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
 
 export const metadata: Metadata = {
-  title: "Whisky Blues Barbearia",
+  title: "Delta Barbearia | Corte e Barba Ilimitados em Fortaleza",
   description:
-    "Barbearia clássica com atmosfera única. Corte, barba e estilo com a personalidade do blues.",
-  keywords: "barbearia, clássica, whisky, blues, estilo, corte masculino",
+    "A barbearia por assinatura de Fortaleza. Corte e barba ilimitados por mensalidade fixa. Agende pelo app, venha sempre que quiser.",
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0D1B2A",
+  themeColor: "#0A0A0A",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -35,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body
-        className={`${_inter.variable} ${_playfair.variable} ${_dancing.variable} font-sans antialiased bg-[#0D1B2A] text-[#F0E6D3] min-h-screen flex flex-col selection:bg-[#C9A05A] selection:text-[#0D1B2A]`}
+        className={`${_inter.variable} ${_interTight.variable} ${_bebas.variable} font-sans antialiased bg-[#0A0A0A] text-[#F5F5F5] min-h-screen flex flex-col selection:bg-[#E63946] selection:text-white`}
       >
         <main className="flex-1 flex flex-col">{children}</main>
       </body>
